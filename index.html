@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* Screen specific text styling */
+        #screen1 h1 {
+            color: #ff4d4d;
+            text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+        }
+
+        #screen2 h1 {
+            color: #ff9900;
+        }
+
+        #screen3 h1 {
+            color: #00ffcc;
+            font-size: 4rem;
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+        }
+
+        .btn {
+            background-color: #1f2833;
+            color: #45f3ff;
+            border: 2px solid #45f3ff;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .btn:hover {
+            background-color: #45f3ff;
+            color: #0b0c10;
+            box-shadow: 0 0 15px #45f3ff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Screen 1 -->
+        <div id="screen1" class="screen active">
+            <h1>GET SCAMMED😈</h1>
+            <button class="btn" onclick="nextScreen(2)">Next</button>
+        </div>
+
+        <!-- Screen 2 -->
+        <div id="screen2" class="screen">
+            <h1>I have your WiFi password</h1>
+            <button class="btn" onclick="nextScreen(3)">Next</button>
+        </div>
+
+        <!-- Screen 3 -->
+        <div id="screen3" class="screen">
+            <h1>JK 😂</h1>
+            <button class="btn" onclick="nextScreen(1)" style="margin-top: 20px;">Restart</button>
+        </div>
+    </div>
+
+    <script>
+        function nextScreen(screenNum) {
+            // Hide all screens
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+
+            // Show target screen
+            const targetScreen = document.getElementById('screen' + screenNum);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
